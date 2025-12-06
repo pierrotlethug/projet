@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Mon app</title>
+    <title>Le bon Koin</title>
+</head>
+
+<body>
+
+    <!-- En tête de notre application web -->
+    <header class="bg-amber-200 p-10 flex justify-between border border-amber-400">
+        <!-- Titre -->
+        <h1 class="text-3xl font-semibold">Le bon Koin</h1>
+
+        <!-- Le Menu -->
+        <nav>
+            <ul class="flex space-x-15 text-xl font-semibold">
+                <li><a href="/"> Accueil</a></li>
+                <li><a href="/login"> Se connecter</a></li>
+                <li><a href="/register"> S'enregistrer</a></li>
+            </ul>
+        </nav>
+<!-- Le body prend toute la hauteur de l'écran -->
+
+<body class="min-h-screen flex flex-col bg-amber-50">
+
+    <!-- ========== HEADER ========== -->
+    <header class="bg-amber-200 p-6 shadow-md border-b-2 border-amber-400">
+
+        <!-- Conteneur centré avec largeur max -->
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+
+            <!-- Logo avec emoji -->
+            <h1 class="text-3xl font-bold text-amber-900">
+                🏠 Le bon Koin
+            </h1>
+
+            <!-- Menu de navigation -->
+            <nav>
+                <ul class="flex gap-8 text-lg font-medium">
+                    <!-- Lien simple -->
+                    <li>
+                        <a href="/" class="text-amber-900 hover:text-amber-600 transition-colors duration-200">
+                            Accueil
+                        </a>
+                    </li>
+                    {% if session["utilisateur"] %}
+                    <!-- Lien simple -->
+                    <li>
+                        <a href="/publier_annonce" class="text-amber-900 hover:text-amber-600 transition-colors duration-200">
+                            Publier
+                        </a>
+                    </li>
+                    
+                    <!-- Bouton mis en avant pour inciter à l'inscription -->
+                    <li>
+                        <a href="/logout"
+                            class="bg-amber-500 text-white px-4 py-2 rounded-lg hover:bg-amber-600 transition-colors duration-200 shadow-sm">
+                            Se déconnecter
+                        </a>
+                    </li>
+                    {% else %}
+
+                    <!-- Lien simple -->
+                    <li>
+                        <a href="/login" class="text-amber-900 hover:text-amber-600 transition-colors duration-200">
+                            Se connecter
+                        </a>
+                    </li>
+
+                    <!-- Bouton mis en avant pour inciter à l'inscription -->
+                    <li>
+                        <a href="/register"
+                            class="bg-amber-500 text-white px-4 py-2 rounded-lg hover:bg-amber-600 transition-colors duration-200 shadow-sm">
+                            S'inscrire
+                        </a>
+                    </li>
+                    {% endif %}
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Le Main zone centrale du site web -->
+    <main class="py-10">
+      {% block content %}
+    <!-- ========== CONTENU PRINCIPAL ========== -->
+    <!-- flex-grow fait que le main prend tout l'espace dispo (footer toujours en bas) -->
+    <main class="flex-grow py-10 px-4">
+
+      {% endblock %}
+        <!-- Conteneur centré pour le contenu -->
+        <div class="max-w-7xl mx-auto">
+            {% block content %}
+            <!-- Le contenu des autres pages s'affiche ici -->
+            {% endblock %}
+        </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <!-- mt-auto pousse le footer en bas de page -->
+    <footer class="bg-amber-200 py-6 border-t-2 border-amber-400 mt-auto">
+
+    <footer class="absolute bottom-0 w-full bg-amber-200 p-10 flex justify-center border border-amber-400">
+        <p>Copyright : LeBonCoin © </p>
+        <p>Contact : LeBonCoin@gmail.com </p>
+        <!-- Conteneur centré, responsive (colonne sur mobile, ligne sur desktop) -->
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center gap-4 text-amber-900">
+
+    </footer>
+            <!-- Copyright -->
+            <p class="font-medium">© 2025 Le bon Koin - Tous droits réservés</p>
+
+            <!-- Séparateur visible uniquement sur desktop -->
+            <span class="hidden md:inline text-amber-400">|</span>
+
+            <!-- Email cliquable avec icône -->
+            <p class="flex items-center gap-2">
+                <span class="text-lg">📧</span>
+                <a href="mailto:contact@lebonkoin.com" class="hover:text-amber-600 transition-colors">
+                    contact@lebonkoin.com
+                </a>
+            </p>
+        </div>
+    </footer>
+
+</body>
